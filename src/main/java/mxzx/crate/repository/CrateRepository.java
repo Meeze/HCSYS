@@ -2,6 +2,7 @@ package mxzx.crate.repository;
 
 import mxzx.HibernateUtil;
 import mxzx.crate.model.Crate;
+import mxzx.crate.model.CrateItem;
 import mxzx.database.Repository;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -11,6 +12,21 @@ import java.util.List;
 
 public class CrateRepository implements Repository<Crate> {
 
+    public void saveItem(CrateItem type) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.save(type);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+    }
+
     @Override
     public void save(Crate type) {
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -18,6 +34,21 @@ public class CrateRepository implements Repository<Crate> {
         try {
             tx = session.beginTransaction();
             session.save(type);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+    }
+
+    public void update(Crate type) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(type);
             tx.commit();
         } catch (Exception e) {
             if (tx != null) tx.rollback();

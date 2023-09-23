@@ -7,8 +7,12 @@ import mxzx.ams.controller.AmsController;
 import mxzx.ams.repository.AmsRepository;
 import mxzx.ams.service.AmsService;
 import mxzx.command.AmsCommand;
+import mxzx.command.CrateCommand;
 import mxzx.command.KitCommand;
 import mxzx.command.PerkCommand;
+import mxzx.crate.controller.CrateController;
+import mxzx.crate.repository.CrateRepository;
+import mxzx.crate.service.CrateService;
 import mxzx.kit.controller.KitController;
 import mxzx.kit.repository.KitRepository;
 import mxzx.kit.service.KitService;
@@ -101,6 +105,7 @@ public class Main extends JavaPlugin {
     private AmsController amsController;
     private KitController kitController;
     private PerkController perkController;
+    private CrateController crateController;
 
     @Override
     public void onEnable() {
@@ -130,6 +135,8 @@ public class Main extends JavaPlugin {
         setAmsController(new AmsController(new AmsService(new AmsRepository())));
         setKitController(new KitController(new KitService(new KitRepository())));
         setPerkController(new PerkController(new PerkService(new PerkRepository())));
+        setCrateController(new CrateController(new CrateService(new CrateRepository())));
+        getCrateController().setUp();
 
 
         getManager().getCommandCompletions().registerStaticCompletion("@punishment-time", new String[]{"perma", "1w", "1h", "1d", "1m"});
@@ -168,6 +175,7 @@ public class Main extends JavaPlugin {
         getManager().registerCommand(new AmsCommand(getAmsController()));
         getManager().registerCommand(new KitCommand(getKitController()));
         getManager().registerCommand(new PerkCommand(getPerkController()));
+        getManager().registerCommand(new CrateCommand(getCrateController()));
 
         PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(new BlockPlaceListener(getMetadataInfoController()), this);
