@@ -1,0 +1,54 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+    id 'java'
+}
+
+group 'de.mxzx'
+version '0.0.0-INDEV'
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'Libs'
+    }
+    maven { url = "https://repo.aikar.co/content/groups/aikar/" }
+    maven { url = "https://hub.spigotmc.org/nexus/content/groups/public/" }
+}
+
+sourceCompatibility = 1.8
+compileJava.options.encoding = 'UTF-8'
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'co.aikar:acf-paper:0.5.0-SNAPSHOT'
+    compileOnly name: 'paper'
+    compileOnly name: 'pex'
+    implementation name: 'fancy'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.6.14.Final'
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
+// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+compileJava {
+    options.compilerArgs += ["-parameters"]
+    options.fork = true
+    options.forkOptions.executable = 'javac'
+}
+
+shadowJar {
+    relocate 'co.aikar.commands', 'command.acf'
+    relocate 'co.aikar.locales', 'language.locales'
+}
+
+build.dependsOn shadowJar
