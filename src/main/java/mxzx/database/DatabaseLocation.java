@@ -14,7 +14,6 @@ import javax.persistence.Embeddable;
 @AllArgsConstructor
 public class DatabaseLocation {
 
-    private String name;
     private String world;
     private long x;
     private long y;

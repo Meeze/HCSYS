@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import mxzx.database.DatabaseLocation;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,12 +16,8 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class Warp {
 
-    private int x;
-    private int y;
-    private int z;
-    private String world;
     @Id
     private String name;
-
+    private DatabaseLocation databaseLocation;
 
 }

@@ -2,6 +2,7 @@ package mxzx.warp.controller;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import mxzx.database.DatabaseLocation;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import mxzx.warp.model.Warp;
@@ -30,7 +31,8 @@ public class WarpController {
 
     public void createWarp(String name, Player player) {
         Location l = player.getLocation();
-        Warp warp = Warp.builder().name(name).x(l.getBlockX()).y(l.getBlockY()).z(l.getBlockZ()).build();
+        DatabaseLocation loc = DatabaseLocation.builder().world(l.getWorld().getName()).x(l.getBlockX()).y(l.getBlockY()).z(l.getBlockZ()).build();
+        Warp warp = Warp.builder().name(name).databaseLocation(loc).build();
         warps.put(name, warp);
         getWarpService().saveWarp(warp);
     }

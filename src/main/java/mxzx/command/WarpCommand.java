@@ -3,6 +3,7 @@ package mxzx.command;
 import co.aikar.commands.annotation.CatchUnknown;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.CommandPermission;
+import co.aikar.commands.annotation.Default;
 import co.aikar.commands.annotation.Subcommand;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -19,13 +20,6 @@ public class WarpCommand extends BasedCommand {
 
     private final WarpController warpController;
 
-    public void warp(Player player, String name) {
-        if(!getWarpController().hasWarp(name)) {
-            player.sendMessage("nope");
-        }
-        player.sendMessage(getWarpController().getWarp(name).getZ()+ "z");
-    }
-
     @Subcommand("create")
     @CommandAlias("setwarp")
     @CommandPermission("system.command.warp.create")
@@ -37,12 +31,16 @@ public class WarpCommand extends BasedCommand {
     @Subcommand("spawn")
     @CommandAlias("spawn")
     public void warpSpawn(Player player) {
-        player.sendMessage(getWarpController().getWarp("spawn").getZ()+ "z");
+        player.sendMessage(getWarpController().getWarp("spawn").getDatabaseLocation().toString());
     }
 
-    @CatchUnknown
-    public void showHelp(Player player) {
-        player.sendMessage("lelele");
+    @Default
+    public void warp(Player player, String name) {
+        if(!getWarpController().hasWarp(name)) {
+            player.sendMessage("nope");
+        }
+        player.sendMessage(getWarpController().getWarp(name).getDatabaseLocation().toString());
     }
+
 
 }
