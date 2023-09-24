@@ -27,6 +27,22 @@ public class ClanRepository implements Repository<Clan> {
     }
 
     @Override
+    public void update(Clan type) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(type);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
     public Clan load(String id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Clan loaded = session.get(Clan.class, id);

@@ -2,6 +2,7 @@ package mxzx.crate.controller;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import mxzx.abstraccc.Base;
 import mxzx.abstraccc.BukkitSerializer;
 import mxzx.abstraccc.ItemBuilder;
 import mxzx.crate.model.Crate;
@@ -19,7 +20,7 @@ import java.util.Map;
 
 @RequiredArgsConstructor
 @Getter
-public class CrateController {
+public class CrateController implements Base {
 
 
     private final CrateService crateService;
@@ -50,7 +51,7 @@ public class CrateController {
     }
 
     public CrateItem createCrateItem(String name, ItemStack itemStack, int tickets, int viewWeight) {
-        String serial = BukkitSerializer.itemStackArrayToBase64(Arrays.asList(itemStack).toArray(new ItemStack[0]));
+        String serial = BukkitSerializer.itemStackArrayToBase64(itemArr(itemStack));
         return CrateItem.builder().displayName(name).b64itemStack(serial).tickets(tickets).viewWeight(viewWeight).build();
     }
 

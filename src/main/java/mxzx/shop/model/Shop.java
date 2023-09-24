@@ -23,10 +23,6 @@ import java.util.List;
 public class Shop {
 
     @Id
-    @Type(type = "org.hibernate.type.UUIDCharType")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
-    @NaturalId
     private String name;
     private String displayTitle;
     @OneToMany(fetch = FetchType.EAGER)

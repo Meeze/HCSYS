@@ -19,6 +19,10 @@ import mxzx.kit.service.KitService;
 import mxzx.perk.controller.PerkController;
 import mxzx.perk.repository.PerkRepository;
 import mxzx.perk.service.PerkService;
+import mxzx.shop.controller.ShopController;
+import mxzx.shop.repository.ShopItemRepository;
+import mxzx.shop.repository.ShopRepository;
+import mxzx.shop.service.ShopService;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -106,6 +110,7 @@ public class Main extends JavaPlugin {
     private KitController kitController;
     private PerkController perkController;
     private CrateController crateController;
+    private ShopController shopController;
 
     @Override
     public void onEnable() {
@@ -128,15 +133,18 @@ public class Main extends JavaPlugin {
         setGlobalMuteController(new GlobalMuteController(new GlobalMute(false)));
         setVoucherController(new VoucherController(new VoucherService()));
         setWarpController(new WarpController(new WarpService(new WarpRepository())));
-        getWarpController().setUp();
         setClanController(new ClanController(new ClanService(new ClanRepository())));
         setTeleportController(new TeleportController());
         setBountyController(new BountyController(new BountyService(new BountyRepository())));
         setAmsController(new AmsController(new AmsService(new AmsRepository())));
         setKitController(new KitController(new KitService(new KitRepository())));
         setPerkController(new PerkController(new PerkService(new PerkRepository())));
+        setShopController(new ShopController(new ShopService(new ShopRepository(), new ShopItemRepository())));
+
+
         setCrateController(new CrateController(new CrateService(new CrateRepository())));
         getCrateController().setUp();
+        getWarpController().setUp();
 
 
         getManager().getCommandCompletions().registerStaticCompletion("@punishment-time", new String[]{"perma", "1w", "1h", "1d", "1m"});

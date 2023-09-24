@@ -12,6 +12,11 @@ public class VoucherRepository implements Repository<Voucher> {
     }
 
     @Override
+    public void update(Voucher type) {
+
+    }
+
+    @Override
     public Voucher load(String id) {
         return null;
     }

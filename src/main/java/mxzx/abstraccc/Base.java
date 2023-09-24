@@ -12,11 +12,16 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.Instant;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Optional;
 import java.util.UUID;
 
 public interface Base {
 
+    default ItemStack[] itemArr(ItemStack itemStack) {
+        return Collections.singletonList(itemStack).toArray(new ItemStack[0]);
+    }
 
     default String buildMessageFromArguments(String[] args, int skipAmount) {
         String builderOutput;
