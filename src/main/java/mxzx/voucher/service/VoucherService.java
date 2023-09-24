@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public class VoucherService  implements Repository<Voucher> {
+public class VoucherService implements Repository<Voucher> {
 
 
     @Override
@@ -30,7 +30,24 @@ public class VoucherService  implements Repository<Voucher> {
             throw e;
         } finally {
             session.close();
-        }}
+        }
+    }
+
+    @Override
+    public void update(Voucher type) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(type);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+    }
 
     @Override
     public Voucher load(String id) {

@@ -28,6 +28,22 @@ public class PunishmentRepository implements Repository<Punishment> {
     }
 
     @Override
+    public void update(Punishment punishment) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(punishment);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
     public Punishment load(String id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Punishment loaded = session.get(Punishment.class, id);

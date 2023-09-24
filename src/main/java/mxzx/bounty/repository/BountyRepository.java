@@ -29,6 +29,22 @@ public class BountyRepository implements Repository<Bounty> {
     }
 
     @Override
+    public void update(Bounty toSave) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(toSave);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
     public Bounty load(String id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Bounty loaded = session.get(Bounty.class, id);
@@ -53,7 +69,7 @@ public class BountyRepository implements Repository<Bounty> {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         List results = session.createCriteria(Bounty.class)
-                .add( Restrictions.eq("target", target) )
+                .add(Restrictions.eq("target", target))
                 .list();
         session.close();
         return results;

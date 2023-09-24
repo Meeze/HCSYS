@@ -25,6 +25,21 @@ public class KitRepository implements Repository<Kit> {
             session.close();
         }
     }
+    @Override
+    public void update(Kit toSave) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(toSave);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+    }
 
     @Override
     public Kit load(String id) {

@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.List;
@@ -21,7 +22,7 @@ public class Clan {
     @Id
     private String tag;
     private String owner;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<ClanWarp> warps;
     @ElementCollection
     private List<ClanMember> members;

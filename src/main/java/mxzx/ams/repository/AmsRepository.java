@@ -28,6 +28,22 @@ public class AmsRepository implements Repository<Ams> {
     }
 
     @Override
+    public void update(Ams type) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(type);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
     public Ams load(String id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Ams loaded = session.get(Ams.class, id);

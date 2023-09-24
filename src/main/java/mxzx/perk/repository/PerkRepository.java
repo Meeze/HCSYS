@@ -25,7 +25,24 @@ public class PerkRepository implements Repository<Perk> {
             throw e;
         } finally {
             session.close();
-        }}
+        }
+    }
+
+    @Override
+    public void update(Perk type) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(type);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+    }
 
     @Override
     public Perk load(String id) {

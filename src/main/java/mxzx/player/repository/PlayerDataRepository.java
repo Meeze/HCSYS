@@ -26,6 +26,21 @@ public class PlayerDataRepository  implements Repository<PlayerData> {
             session.close();
         }
     }
+    @Override
+    public void update(PlayerData toSave) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(toSave);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+    }
 
     @Override
     public PlayerData load(String id) {

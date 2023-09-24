@@ -43,6 +43,7 @@ public class CrateRepository implements Repository<Crate> {
         }
     }
 
+    @Override
     public void update(Crate type) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;

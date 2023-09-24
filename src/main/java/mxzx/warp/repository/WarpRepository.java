@@ -28,6 +28,22 @@ public class WarpRepository implements Repository<Warp> {
     }
 
     @Override
+    public void update(Warp warp) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(warp);
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
     public Warp load(String id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Warp loaded = session.get(Warp.class, id);
