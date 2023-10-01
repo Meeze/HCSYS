@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import mxzx.abstraccc.AbstractControllerBasedListener;
+import mxzx._core.AbstractControllerBasedListener;
 import mxzx.admin.Controller.GodmodeController;
 import mxzx.bounty.controller.BountyController;
 import mxzx.player.controller.PlayerDataController;

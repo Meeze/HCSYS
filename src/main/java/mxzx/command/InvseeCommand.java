@@ -8,7 +8,7 @@ import co.aikar.commands.annotation.Syntax;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import mxzx.abstraccc.BasedCommand;
+import mxzx._core.BasedCommand;
 
 @CommandAlias("invsee")
 @CommandPermission("system.command.invsee")

@@ -12,7 +12,7 @@ import co.aikar.commands.annotation.Syntax;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
-import mxzx.abstraccc.BasedCommand;
+import mxzx._core.BasedCommand;
 
 @CommandAlias("gamemode|gm")
 @CommandPermission("system.command.gamemode")

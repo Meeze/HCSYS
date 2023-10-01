@@ -2,15 +2,14 @@ package mxzx.kit.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.bukkit.inventory.Inventory;
+import mxzx.database.convert.InventoryConverter;
+import org.bukkit.inventory.ItemStack;
 
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 
 @Entity
 @Builder
@@ -21,7 +20,7 @@ public class Kit {
 
     @Id
     private String name;
-    @Lob
-    private String inventory;
+    @Convert(converter = InventoryConverter.class)
+    private ItemStack[] content;
 
 }

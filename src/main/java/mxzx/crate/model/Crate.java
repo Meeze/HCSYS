@@ -9,11 +9,9 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import java.util.List;
 import java.util.UUID;
 
@@ -32,7 +30,7 @@ public class Crate {
     private String name;
     private CrateRarity rarity;
     private long cost;
-    @OneToMany(fetch = FetchType.EAGER)
+    @ElementCollection
     private List<CrateItem> items;
 
 }

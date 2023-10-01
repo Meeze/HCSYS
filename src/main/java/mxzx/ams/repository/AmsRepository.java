@@ -2,14 +2,29 @@ package mxzx.ams.repository;
 
 import mxzx.ams.model.Ams;
 import mxzx.HibernateUtil;
+import mxzx.bounty.model.Bounty;
 import mxzx.database.Repository;
+import org.bukkit.Location;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AmsRepository implements Repository<Ams> {
+
+    public Ams loadByLocation(Location loc) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        List results = session.createCriteria(Ams.class)
+                .add(Restrictions.eq("location", loc))
+                .list();
+        session.close();
+        return (Ams) results.get(0);
+
+    }
+
 
     @Override
     public void save(Ams type) {
@@ -46,7 +61,7 @@ public class AmsRepository implements Repository<Ams> {
     @Override
     public Ams load(String id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Ams loaded = session.get(Ams.class, id);
+        Ams loaded = session.byNaturalId(Ams.class).using("owner", id).load();
         session.close();
         return loaded;
     }

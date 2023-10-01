@@ -3,7 +3,7 @@ package mxzx.bounty.controller;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
-import mxzx.abstraccc.Base;
+import mxzx._core.Base;
 import mxzx.bounty.model.Bounty;
 import mxzx.bounty.service.BountyService;
 

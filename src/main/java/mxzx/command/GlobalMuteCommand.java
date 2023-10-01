@@ -5,7 +5,7 @@ import co.aikar.commands.annotation.Default;
 import co.aikar.commands.annotation.Subcommand;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import mxzx.abstraccc.BasedCommand;
+import mxzx._core.BasedCommand;
 import mxzx.chat.controller.GlobalMuteController;
 
 

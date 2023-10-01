@@ -1,13 +1,13 @@
 package mxzx.listener;
 
-import mxzx.metadata.MetadataInfoController;
+import mxzx.metadata.controller.MetadataInfoController;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.BlockBreakEvent;
-import mxzx.abstraccc.AbstractControllerBasedListener;
-import mxzx.abstraccc.ItemBuilder;
+import mxzx._core.AbstractControllerBasedListener;
+import mxzx._core.ItemBuilder;
 
 import java.util.Random;
 

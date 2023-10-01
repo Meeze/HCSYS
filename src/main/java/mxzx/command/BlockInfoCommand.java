@@ -8,8 +8,8 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import mxzx.metadata.MetadataInfoController;
-import mxzx.abstraccc.BasedCommand;
+import mxzx.metadata.controller.MetadataInfoController;
+import mxzx._core.BasedCommand;
 
 import java.util.HashSet;
 import java.util.List;

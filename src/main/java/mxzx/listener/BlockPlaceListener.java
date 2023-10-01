@@ -3,9 +3,9 @@ package mxzx.listener;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.event.EventHandler;
-import mxzx.metadata.MetadataInfoController;
+import mxzx.metadata.controller.MetadataInfoController;
 import org.bukkit.event.block.BlockPlaceEvent;
-import mxzx.abstraccc.AbstractControllerBasedListener;
+import mxzx._core.AbstractControllerBasedListener;
 
 @RequiredArgsConstructor
 @Getter

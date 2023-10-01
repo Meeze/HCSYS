@@ -38,8 +38,8 @@ public class HibernateUtil {
             StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
                     .configure("hibernate.cfg.xml").applySetting("hibernate.hbm2ddl.auto", "create").build();
             Metadata metadata = new MetadataSources(standardRegistry).addAnnotatedClass(Punishment.class).addAnnotatedClass(PlayerData.class).addAnnotatedClass(Warp.class).addAnnotatedClass(Clan.class).
-                    addAnnotatedClass(ClanMember.class).addAnnotatedClass(ClanWarp.class).addAnnotatedClass(Ams.class).addAnnotatedClass(Bounty.class).addAnnotatedClass(Voucher.class).addAnnotatedClass(Kit.class)
-                    .addAnnotatedClass(Perk.class).addAnnotatedClass(Crate.class).addAnnotatedClass(CrateItem.class).addAnnotatedClass(Shop.class).addAnnotatedClass(ShopItem.class)
+                    addAnnotatedClass(ClanMember.class).addAnnotatedClass(Ams.class).addAnnotatedClass(Bounty.class).addAnnotatedClass(Voucher.class).addAnnotatedClass(Kit.class)
+                    .addAnnotatedClass(Perk.class).addAnnotatedClass(Crate.class).addAnnotatedClass(CrateItem.class).addAnnotatedClass(Shop.class)
                     .getMetadataBuilder()
                     .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE).build();
             SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build();

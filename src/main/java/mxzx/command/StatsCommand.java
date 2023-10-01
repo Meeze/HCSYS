@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import mxzx.abstraccc.BasedCommand;
+import mxzx._core.BasedCommand;
 import mxzx.player.controller.PlayerDataController;
 
 @CommandAlias("stats")

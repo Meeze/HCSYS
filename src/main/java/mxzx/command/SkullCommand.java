@@ -8,7 +8,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
-import mxzx.abstraccc.BasedCommand;
+import mxzx._core.BasedCommand;
 
 @CommandAlias("skull")
 @CommandPermission("system.command.skull")

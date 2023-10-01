@@ -3,7 +3,7 @@ package mxzx.player.controller;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
-import mxzx.abstraccc.BaseController;
+import mxzx._core.BaseController;
 import mxzx.player.model.PlayerData;
 import mxzx.player.service.PlayerDataService;
 

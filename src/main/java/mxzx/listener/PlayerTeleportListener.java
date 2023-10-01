@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerTeleportEvent;
-import mxzx.abstraccc.AbstractControllerBasedListener;
+import mxzx._core.AbstractControllerBasedListener;
 import mxzx.teleport.controller.TeleportController;
 
 @RequiredArgsConstructor

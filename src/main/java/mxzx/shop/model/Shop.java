@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.NaturalId;
 import org.hibernate.annotations.Type;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,7 @@ public class Shop {
     @Id
     private String name;
     private String displayTitle;
-    @OneToMany(fetch = FetchType.EAGER)
+    @ElementCollection
     private List<ShopItem> shopItems;
 
 }

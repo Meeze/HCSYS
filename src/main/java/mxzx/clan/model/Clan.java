@@ -22,7 +22,7 @@ public class Clan {
     @Id
     private String tag;
     private String owner;
-    @OneToMany(fetch = FetchType.EAGER)
+    @ElementCollection
     private List<ClanWarp> warps;
     @ElementCollection
     private List<ClanMember> members;

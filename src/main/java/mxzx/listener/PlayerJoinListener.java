@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
-import mxzx.abstraccc.AbstractControllerBasedListener;
+import mxzx._core.AbstractControllerBasedListener;
 import mxzx.player.controller.PlayerDataController;
 
 @RequiredArgsConstructor

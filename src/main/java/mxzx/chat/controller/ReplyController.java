@@ -3,7 +3,7 @@ package mxzx.chat.controller;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
-import mxzx.abstraccc.BaseController;
+import mxzx._core.BaseController;
 
 import java.util.HashMap;
 import java.util.Map;

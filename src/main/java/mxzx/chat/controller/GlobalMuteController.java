@@ -2,7 +2,7 @@ package mxzx.chat.controller;
 
 import lombok.Data;
 import lombok.Getter;
-import mxzx.abstraccc.BaseController;
+import mxzx._core.BaseController;
 import mxzx.chat.model.GlobalMute;
 
 @Getter

@@ -4,22 +4,21 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import mxzx.database.convert.LocationConverter;
+import org.bukkit.Location;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.Convert;
+import javax.persistence.Embeddable;
 
-@Entity
+@Embeddable
 @Data
 @Builder
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class ClanWarp {
 
-    private int x;
-    private int y;
-    private int z;
-    private String world;
-    @Id
+    @Convert(converter = LocationConverter.class)
+    private Location location;
     private String name;
 
 

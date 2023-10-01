@@ -5,7 +5,7 @@ import co.aikar.commands.annotation.CommandPermission;
 import co.aikar.commands.annotation.Default;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import mxzx.abstraccc.BasedCommand;
+import mxzx._core.BasedCommand;
 
 @CommandAlias("more")
 @CommandPermission("system.command.more")

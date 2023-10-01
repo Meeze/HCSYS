@@ -6,7 +6,7 @@ import co.aikar.commands.annotation.Default;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
-import mxzx.abstraccc.BasedCommand;
+import mxzx._core.BasedCommand;
 import mxzx.teleport.controller.TeleportController;
 
 @CommandAlias("back")

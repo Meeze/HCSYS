@@ -8,7 +8,7 @@ import co.aikar.commands.annotation.Syntax;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
-import mxzx.abstraccc.BasedCommand;
+import mxzx._core.BasedCommand;
 import mxzx.bounty.controller.BountyController;
 import mxzx.player.controller.PlayerDataController;
 

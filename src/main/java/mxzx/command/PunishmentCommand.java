@@ -4,7 +4,7 @@ package mxzx.command;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.CommandCompletion;
 import co.aikar.commands.annotation.Syntax;
-import mxzx.abstraccc.BasedCommand;
+import mxzx._core.BasedCommand;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.bukkit.Bukkit;

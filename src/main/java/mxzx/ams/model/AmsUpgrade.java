@@ -1,12 +1,22 @@
 package mxzx.ams.model;
 
 import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.util.UUID;
 
-@Embeddable
+@Entity
 public class AmsUpgrade {
 
-    private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String id;
+    private UpgradeType upgradeType;
     private int level;
+    private String name;
     private long cost;
 
 }

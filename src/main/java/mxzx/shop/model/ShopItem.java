@@ -3,26 +3,21 @@ package mxzx.shop.model;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Type;
+import mxzx.database.convert.ItemStackConverter;
+import org.bukkit.inventory.ItemStack;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.Convert;
+import javax.persistence.Embeddable;
 
-@Entity
+@Embeddable
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class ShopItem {
 
-    @Id
-    @Type(type = "org.hibernate.type.UUIDCharType")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private String displayName;
-    @Lob
-    private String b64itemStack;
+    @Convert(converter = ItemStackConverter.class)
+    private ItemStack b64itemStack;
     private long price;
 }

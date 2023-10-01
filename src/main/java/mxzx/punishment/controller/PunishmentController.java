@@ -7,7 +7,7 @@ import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
-import mxzx.abstraccc.Base;
+import mxzx._core.Base;
 import mxzx.punishment.model.Punishment;
 import mxzx.punishment.model.PunishmentResult;
 import mxzx.punishment.model.PunishmentType;

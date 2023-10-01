@@ -8,7 +8,7 @@ import co.aikar.commands.annotation.Syntax;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
-import mxzx.abstraccc.BasedCommand;
+import mxzx._core.BasedCommand;
 import mxzx.clan.controller.ClanController;
 
 @CommandAlias("clan|c")
@@ -26,7 +26,7 @@ public class ClanCommand extends BasedCommand {
 
     @Syntax("create name")
     @Subcommand("create|erstellen")
-    @CommandPermission("system.command.enderchest.others")
+    @CommandPermission("system.command.clan.create")
     public void onCommand(Player player, String name) {
        getClanController().createClan(player, name);
     }

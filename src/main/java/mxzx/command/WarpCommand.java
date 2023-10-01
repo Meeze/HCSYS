@@ -1,6 +1,5 @@
 package mxzx.command;
 
-import co.aikar.commands.annotation.CatchUnknown;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.CommandPermission;
 import co.aikar.commands.annotation.Default;
@@ -8,7 +7,7 @@ import co.aikar.commands.annotation.Subcommand;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
-import mxzx.abstraccc.BasedCommand;
+import mxzx._core.BasedCommand;
 import mxzx.warp.controller.WarpController;
 
 
@@ -31,7 +30,7 @@ public class WarpCommand extends BasedCommand {
     @Subcommand("spawn")
     @CommandAlias("spawn")
     public void warpSpawn(Player player) {
-        player.sendMessage(getWarpController().getWarp("spawn").getDatabaseLocation().toString());
+        player.teleport(getWarpController().getWarp("spawn").getLocation());
     }
 
     @Default
@@ -39,7 +38,7 @@ public class WarpCommand extends BasedCommand {
         if(!getWarpController().hasWarp(name)) {
             player.sendMessage("nope");
         }
-        player.sendMessage(getWarpController().getWarp(name).getDatabaseLocation().toString());
+       player.teleport(getWarpController().getWarp(name).getLocation());
     }
 
 

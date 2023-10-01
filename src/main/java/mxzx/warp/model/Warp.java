@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import mxzx.database.DatabaseLocation;
+import mxzx.database.convert.LocationConverter;
+import org.bukkit.Location;
 
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -18,6 +20,7 @@ public class Warp {
 
     @Id
     private String name;
-    private DatabaseLocation databaseLocation;
+    @Convert(converter = LocationConverter.class)
+    private Location location;
 
 }

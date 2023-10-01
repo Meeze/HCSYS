@@ -5,15 +5,10 @@ import co.aikar.commands.annotation.CommandPermission;
 import co.aikar.commands.annotation.Default;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import mxzx.abstraccc.BasedCommand;
+import mxzx._core.BasedCommand;
 import mxzx.ams.controller.AmsController;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.block.Block;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @CommandAlias("ams")
 @CommandPermission("system.command.ams")
